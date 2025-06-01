@@ -1,0 +1,1467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PKR Technical Services Company W.L.L.</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <style>
+         :root {
+            --primary-color: #3d7d99;
+            --secondary-color: #a5c6d1;
+            --accent-color: #e3ae24;
+            --dark-color: #333;
+            --light-color: #f8f9fa;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow-x: hidden;
+        }
+        
+        .navbar {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 15px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .navbar-brand img {
+            height: 100px;
+        }
+        
+        .nav-link {
+            color: var(--dark-color);
+            font-weight: 500;
+            margin: 0 10px;
+            transition: color 0.3s;
+        }
+        
+        .nav-link:hover {
+            color: var(--primary-color);
+        }
+        
+        .nav-link.active {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--primary-color);
+        }
+        
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            color: white;
+            position: relative;
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            transition: background-image 1s ease-in-out;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.7);
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: #ffffff;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            color: #f0f0f0;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            padding: 10px 25px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            background-color: #2c6b87;
+            border-color: #2c6b87;
+            transform: translateY(-2px);
+        }
+        
+        .section-title {
+            color: var(--primary-color);
+            font-weight: 700;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--primary-color);
+        }
+
+
+         .section-padding {
+            padding: 100px 0;
+        }
+        
+        
+        .lead {
+            font-size: 1.2rem;
+            color: #6c757d;
+            margin-bottom: 3rem;
+        }
+
+        /* Simple fade transition */
+        .fade-transition {
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+        
+        .fade-transition.active {
+            opacity: 1;
+        }
+        
+        .about-section {
+            background-color: #f8f9fa;
+            padding: 100px 0;
+        }
+        
+        .about-img {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .mission-quote {
+            border-left: 4px solid var(--primary-color);
+            padding-left: 20px;
+            color: var(--primary-color);
+            font-style: italic;
+        }
+        
+        .service-card {
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            height: 100%;
+            transition: transform 0.3s, box-shadow 0.3s;
+            background-color: white;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+        
+        .service-icon {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+        
+          .project-card {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 15px 45px rgba(0,0,0,0.08);
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            overflow: hidden;
+            height: 100%;
+            border: 1px solid rgba(255,255,255,0.2);
+            position: relative;
+        }
+        
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+        
+        .project-card:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .project-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 25px 60px rgba(0,0,0,0.15);
+        }
+        
+        .project-img {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .project-img::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+        
+        .project-card:hover .project-img::before {
+            left: 100%;
+        }
+        
+        .project-img i {
+            transition: transform 0.4s ease;
+        }
+        
+        .project-card:hover .project-img i {
+            transform: scale(1.1) rotate(5deg);
+        }
+        
+        .project-card h4 {
+            color: #1a1a1a;
+            font-weight: 700;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+        
+        .project-card p {
+            color: #6c757d;
+            line-height: 1.7;
+            margin-bottom: 25px;
+        }
+        
+        .badge {
+            font-size: 0.8rem;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .bg-light {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%) !important;
+        }
+        
+        /* Stats cards styling */
+        .text-center.p-3 {
+            transition: all 0.3s ease;
+        }
+        
+        .text-center.p-3:hover {
+            transform: translateY(-5px);
+        }
+        
+        .h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+        }
+        
+        /* Category icons styling */
+        .fas.fa-2x {
+            transition: all 0.3s ease;
+        }
+        
+        .p-3:hover .fas.fa-2x {
+            transform: scale(1.1);
+        }
+        
+       /* Gallery Tabs */
+        .gallery-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .gallery-tab {
+            background: white;
+            border: 2px solid #e9ecef;
+            color: var(--text-muted);
+            padding: 12px 24px;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            text-decoration: none;
+        }
+
+        .gallery-tab:hover {
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .gallery-tab.active {
+            background: var(--primary-color);
+            border-color: var(--primary-color);
+            color: white;
+        }
+
+        /* Gallery Grid */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+            color: white;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .gallery-overlay h5 {
+            margin: 0 0 0.5rem 0;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .gallery-overlay p {
+            margin: 0;
+            opacity: 0.9;
+            font-size: 0.9rem;
+        }
+
+        /* Tab Content */
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* View All Button */
+        .view-all-btn {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .view-all-btn:hover {
+            background: #0056b3;
+            color: white;
+            transform: translateY(-2px);
+            text-decoration: none;
+        }
+
+        /* Modal Styles */
+        .modal-content {
+            border-radius: 15px;
+            border: none;
+        }
+
+        .modal-header {
+            background: var(--primary-color);
+            color: white;
+            border-radius: 15px 15px 0 0;
+        }
+
+        .modal-body {
+            padding: 0;
+        }
+
+        .lightbox-img {
+            width: 100%;
+            height: 70vh;
+            object-fit: contain;
+            background: #000;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .gallery-item img {
+                height: 200px;
+            }
+
+            .gallery-tabs {
+                gap: 0.25rem;
+            }
+
+            .gallery-tab {
+                padding: 10px 16px;
+                font-size: 0.9rem;
+            }
+        }
+        
+      
+        
+        .contact-info {
+            padding: 30px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+        
+        .contact-icon {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .contact-icon-wrapper {
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--primary-color);
+            flex-shrink: 0;
+        }
+        
+        .form-control:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 0.25rem rgba(61, 125, 153, 0.25);
+        }
+        
+        .form-check-input:checked {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+        
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 50px 0 20px;
+        }
+        
+        .social-icons a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            margin-right: 10px;
+            color: white;
+            transition: background-color 0.3s;
+        }
+        
+        .social-icons a:hover {
+            background-color: var(--primary-color);
+        }
+        
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 10px;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+        }
+        
+        .copyright {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 20px;
+            margin-top: 30px;
+        }
+        
+        /* Animated elements */
+        .animated-element {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+        
+        .animated-element.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .btn-floating {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            transition: background-color 0.3s;
+        }
+        
+        .btn-floating:hover {
+            background-color: #2c6b87;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="Frame 172.png" alt="PKR Technical Services Logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#services">Our Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#projects">Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#gallery">Gallery</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 hero-content" data-aos="fade-right" data-aos-duration="1000">
+                    <h1 class="mb-4 fade-transition active" id="hero-title">Engineering Excellence Across The GCC</h1>
+                    <p class="mb-5 fade-transition active" id="hero-description">PKR Technical Services Company W.L.L. provides end-to-end technical expertise to industrial, commercial, and governmental clients—backed by deep engineering knowledge and field execution.</p>
+                    <a href="#contact" class="btn btn-primary btn-lg">Contact Us Today</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-5 mb-lg-0" data-aos="fade-right" data-aos-duration="1000">
+                    <h2 class="section-title">About Our Company</h2>
+                    <p>PKR Technical Services Company W.L.L., headquartered in the Kingdom of Bahrain, is a professional and technical services firm focused on engineering consultancy, offshore EPC coordination, project supervision, and commissioning support across the GCC. We function as a high-level management office providing end-to-end technical expertise to industrial, commercial, and governmental clients—backed by deep engineering knowledge and field execution through our regional affiliates.</p>
+                    
+                    <p>The company was founded by Er. Pavurdeen Rawther, a seasoned industrial expert with over 30 years of experience in instrumentation, electrical systems, process automation, and large-scale infrastructure projects across the Middle East. He is also the founder of Federal Wave Contracting Company in Saudi Arabia—a trusted name in the region for critical government and private sector EPC works, including Saudi Water Authority and Saudi Aramco-approved projects.</p>
+                    
+                    <blockquote class="mission-quote mt-4">
+                        <p>"At PKRTECH, our mission is to bridge precision engineering with reliable execution. By combining deep technical insight with regional expertise, we deliver intelligent, sustainable solutions that meet the evolving needs of industry."</p>
+                        <footer>—Er. Pavurdeen Rawther, Founder & Director</footer>
+                    </blockquote>
+                </div>
+                <div class="col-lg-6" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
+                    <div class="about-img">
+                        <img src="istockphoto-1818561838-612x612.jpg" alt="PKR Technical Services" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-5">
+        <div class="container py-5">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <h2 class="section-title mx-auto">Our Services</h2>
+                <p class="lead">Comprehensive electrical and technical solutions for industrial and commercial applications</p>
+            </div>
+            
+            <div class="row">
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <h4>Electrical Projects</h4>
+                        <p>Comprehensive electrical projects and maintenance contracting services for all types of installations.</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-cogs"></i>
+                        </div>
+                        <h4>Instrumentation & Control</h4>
+                        <p>Advanced instrumentation and control systems supply, installation, maintenance, repair, and commissioning.</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-microchip"></i>
+                        </div>
+                        <h4>PLC & SCADA Systems</h4>
+                        <p>PLC, SCADA and Process Automation design, supply installation, commissioning, and maintenance.</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="400">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-wind"></i>
+                        </div>
+                        <h4>HVAC Systems</h4>
+                        <p>HVAC Systems supply, installation, and maintenance for optimal climate control solutions.</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="500">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-battery-full"></i>
+                        </div>
+                        <h4>Power Systems</h4>
+                        <p>UPS, Battery chargers, Battery banks design, supply, installation, testing and commissioning.</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="600">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-solar-panel"></i>
+                        </div>
+                        <h4>Solar PV Systems</h4>
+                        <p>Solar PV systems supply, erection, installation, testing and commissioning for sustainable energy.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+     <section id="projects" class="section-padding bg-light">
+        <div class="container">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <h2 class="section-title mx-auto">Our Projects</h2>
+                <p class="lead">Delivering excellence across diverse industries in the GCC region</p>
+            </div>
+
+            <!-- Featured Projects -->
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="project-card">
+                        <div class="project-img">
+                            <i class="fas fa-oil-can"></i>
+                        </div>
+                        <div class="p-4">
+                            <h4>SWCC RAS AL KHAIR</h4>
+                            <p>Gas calibration and certification system maintenance for critical water production facility.</p>
+                            <div class="d-flex justify-content-between align-items-center mt-3">
+                                <span class="badge bg-warning">Ongoing</span>
+                                <small class="text-muted">2023-2025</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="project-card">
+                        <div class="project-img">
+                            <i class="fas fa-water"></i>
+                        </div>
+                        <div class="p-4">
+                            <h4>Water Bath Heater Project</h4>
+                            <p>Motor speed control system implementation for gas receiving area at Ras Al Khair facility.</p>
+                            <div class="d-flex justify-content-between align-items-center mt-3">
+                                <span class="badge bg-warning">Ongoing</span>
+                                <small class="text-muted">2023-2024</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="project-card">
+                        <div class="project-img">
+                            <i class="fas fa-cogs"></i>
+                        </div>
+                        <div class="p-4">
+                            <h4>SWCC Al Khafji</h4>
+                            <p>Providing technical support for maintenance and operation works at the Khafji Production Unit.</p>
+                            <div class="d-flex justify-content-between align-items-center mt-3">
+                                <span class="badge bg-warning">Ongoing</span>
+                                <small class="text-muted">2022-2023</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="400">
+                    <div class="project-card">
+                        <div class="project-img">
+                            <i class="fas fa-microchip"></i>
+                        </div>
+                        <div class="p-4">
+                            <h4>SCADA Upgradation</h4>
+                            <p>Advanced SCADA system upgradation for improved monitoring and control capabilities.</p>
+                            <div class="d-flex justify-content-between align-items-center mt-3">
+                                <span class="badge bg-success">Completed</span>
+                                <small class="text-muted">2023</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="500">
+                    <div class="project-card">
+                        <div class="project-img">
+                            <i class="fas fa-battery-full"></i>
+                        </div>
+                        <div class="p-4">
+                            <h4>UPS & Battery Systems</h4>
+                            <p>Comprehensive UPS maintenance and battery replacement for critical power backup systems.</p>
+                            <div class="d-flex justify-content-between align-items-center mt-3">
+                                <span class="badge bg-success">Completed</span>
+                                <small class="text-muted">2023-2024</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="600">
+                    <div class="project-card">
+                        <div class="project-img">
+                            <i class="fas fa-tools"></i>
+                        </div>
+                        <div class="p-4">
+                            <h4>Siemens T3000 Maintenance</h4>
+                            <p>Comprehensive maintenance contract for Siemens T3000 systems with specialized technical support.</p>
+                            <div class="d-flex justify-content-between align-items-center mt-3">
+                                <span class="badge bg-warning">Ongoing</span>
+                                <small class="text-muted">2022-2023</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <!-- <section id="gallery" class="py-5">
+        <div class="container py-5">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <h2 class="section-title mx-auto">Gallery</h2>
+                <p class="lead">Showcasing our work and achievements</p>
+            </div>
+            
+            <div class="row">
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="gallery-item">
+                        <img src="industrial-automation-machines.webp" alt="Gallery Image 1" class="gallery-img">
+                    </div>
+                </div>
+                
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="gallery-item">
+                        <img src="information-technology-integration-500x500.webp" alt="Gallery Image 2" class="gallery-img">
+                    </div>
+                </div>
+                
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="gallery-item">
+                        <img src="technical-services-license-in-dubai6662ee617d5a0.webp" alt="Gallery Image 3" class="gallery-img">
+                    </div>
+                </div>
+                
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="400">
+                    <div class="gallery-item">
+                        <img src="Waste-water-treatment-facility-shutterstock-scaled.jpg" alt="Gallery Image 4" class="gallery-img">
+                    </div>
+                </div>
+                
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="500">
+                    <div class="gallery-item">
+                        <img src="istockphoto-1818561838-612x612.jpg" alt="Gallery Image 5" class="gallery-img">
+                    </div>
+                </div>
+                
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="600">
+                    <div class="gallery-item">
+                        <img src="SEPDC-main.webp" alt="Gallery Image 6" class="gallery-img">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+
+    <!-- Gallery Section Redesign -->
+     <section id="gallery" class="py-5 bg-light">
+        <div class="container py-5">
+            <!-- Section Header -->
+            <div class="text-center mb-5">
+                <h2 class="section-title">Our Gallery</h2>
+                <p class="lead text-muted">Showcasing our achievements, awards, and company events</p>
+            </div>
+
+            <!-- Gallery Tabs -->
+            <div class="gallery-tabs">
+                <a href="#" class="gallery-tab active" data-tab="projects">
+                    <i class="fas fa-building me-2"></i>Projects
+                </a>
+                <a href="#" class="gallery-tab" data-tab="awards">
+                    <i class="fas fa-trophy me-2"></i>Awards
+                </a>
+                <a href="#" class="gallery-tab" data-tab="events">
+                    <i class="fas fa-calendar-alt me-2"></i>Events
+                </a>
+            </div>
+
+            <!-- Gallery Content -->
+            <!-- Projects Tab -->
+            <div class="tab-content active" id="projects-content">
+                <div class="gallery-grid">
+                    <div class="gallery-item" onclick="openLightbox('industrial-automation-machines.webp', 'Industrial Automation Project', 'Bahrain, 2023')">
+                        <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=800&h=600&fit=crop" alt="Industrial Project">
+                        <div class="gallery-overlay">
+                            <h5>Industrial Automation Project</h5>
+                            <p>Bahrain, 2023</p>
+                        </div>
+                    </div>
+
+
+                    <div class="gallery-item" onclick="openLightbox('water-treatment.jpg', 'Water Treatment Facility', 'UAE, 2022')">
+                        <img src="https://images.unsplash.com/photo-1581094288338-2314dddb7ece?w=800&h=600&fit=crop" alt="Water Treatment">
+                        <div class="gallery-overlay">
+                            <h5>Water Treatment Facility</h5>
+                            <p>UAE, 2022</p>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item" onclick="openLightbox('commercial-building.jpg', 'Commercial Building Systems', 'Qatar, 2023')">
+                        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&h=600&fit=crop" alt="Commercial Building">
+                        <div class="gallery-overlay">
+                            <h5>Commercial Building Systems</h5>
+                            <p>Qatar, 2023</p>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item" onclick="openLightbox('power-distribution.jpg', 'Power Distribution Network', 'Bahrain, 2024')">
+                        <img src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=800&h=600&fit=crop" alt="Power Distribution">
+                        <div class="gallery-overlay">
+                            <h5>Power Distribution Network</h5>
+                            <p>Bahrain, 2024</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Awards Tab -->
+            <div class="tab-content" id="awards-content">
+                <div class="gallery-grid">
+                    <div class="gallery-item" onclick="openLightbox('excellence-award.jpg', 'Engineering Excellence Award', 'GCC Technical Summit, 2023')">
+                        <img src="https://images.unsplash.com/photo-1567427017947-545c5f8d16ad?w=800&h=600&fit=crop" alt="Excellence Award">
+                        <div class="gallery-overlay">
+                            <h5>Engineering Excellence Award</h5>
+                            <p>GCC Technical Summit, 2023</p>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item" onclick="openLightbox('innovation-award.jpg', 'Innovation Award', 'Bahrain Industrial Conference, 2024')">
+                        <img src="https://images.unsplash.com/photo-1551698618-1dfe5d97d256?w=800&h=600&fit=crop" alt="Innovation Award">
+                        <div class="gallery-overlay">
+                            <h5>Innovation in Automation Award</h5>
+                            <p>Bahrain Industrial Conference, 2024</p>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item" onclick="openLightbox('safety-award.jpg', 'Safety Award', 'Saudi Aramco, 2022')">
+                        <img src="https://images.unsplash.com/photo-1624555130854-30b2ff7944d7?w=800&h=600&fit=crop" alt="Safety Award">
+                        <div class="gallery-overlay">
+                            <h5>Project Safety Recognition</h5>
+                            <p>Saudi Aramco, 2022</p>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item" onclick="openLightbox('business-award.jpg', 'Business Award', 'Bahrain Business Awards, 2023')">
+                        <img src="https://images.unsplash.com/photo-1527525443983-6e60c75fff46?w=800&h=600&fit=crop" alt="Business Award">
+                        <div class="gallery-overlay">
+                            <h5>Best Technical Services Company</h5>
+                            <p>Bahrain Business Awards, 2023</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Events Tab -->
+            <div class="tab-content" id="events-content">
+                <div class="gallery-grid">
+                    <div class="gallery-item" onclick="openLightbox('anniversary.jpg', 'Company Anniversary', 'Manama, Bahrain - 2023')">
+                        <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=800&h=600&fit=crop" alt="Anniversary Event">
+                        <div class="gallery-overlay">
+                            <h5>Company 10th Anniversary</h5>
+                            <p>Manama, Bahrain - 2023</p>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item" onclick="openLightbox('conference.jpg', 'Engineering Conference', 'Dubai, UAE - 2024')">
+                        <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&h=600&fit=crop" alt="Conference">
+                        <div class="gallery-overlay">
+                            <h5>GCC Engineering Conference</h5>
+                            <p>Dubai, UAE - 2024</p>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item" onclick="openLightbox('team-building.jpg', 'Team Building', 'Bahrain - 2023')">
+                        <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=800&h=600&fit=crop" alt="Team Building">
+                        <div class="gallery-overlay">
+                            <h5>Annual Team Building Event</h5>
+                            <p>Bahrain - 2023</p>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item" onclick="openLightbox('training.jpg', 'Technical Training', 'Manama, Bahrain - 2024')">
+                        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=600&fit=crop" alt="Training">
+                        <div class="gallery-overlay">
+                            <h5>Staff Technical Training</h5>
+                            <p>Manama, Bahrain - 2024</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- View All Button -->
+            <div class="text-center">
+                <a href="#" class="view-all-btn" data-bs-toggle="modal" data-bs-target="#galleryModal">
+                    <i class="fas fa-images"></i>
+                    View Full Gallery
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lightbox Modal -->
+    <div class="modal fade" id="galleryModal" tabindex="-1">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="lightboxTitle">Gallery Image</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <img id="lightboxImage" src="" alt="" class="lightbox-img">
+                    <div class="p-3">
+                        <p id="lightboxDescription" class="mb-0 text-center text-muted"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-5 position-relative">
+        <div class="container py-5">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <h2 class="section-title mx-auto">Contact Us</h2>
+                <p class="lead">Ready to start your next project? Get in touch with our team</p>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-lg-5 mb-4 mb-lg-0" data-aos="fade-right" data-aos-delay="100">
+                    <div class="contact-info bg-white p-4 rounded shadow h-100">
+                        <div class="d-flex align-items-center mb-4">
+                            <div class="contact-icon-wrapper bg-primary text-white rounded-circle p-3 me-3">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <h5 class="mb-1">Our Location</h5>
+                                <p class="mb-0">PKR Technical Services Company W.L.L.<br>Manama, Kingdom of Bahrain</p>
+                            </div>
+                        </div>
+                        
+                        <div class="d-flex align-items-center mb-4">
+                            <div class="contact-icon-wrapper bg-primary text-white rounded-circle p-3 me-3">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h5 class="mb-1">Email Address</h5>
+                                <p class="mb-0">sales@pkrtech.com<br>info@pkrtech.com</p>
+                            </div>
+                        </div>
+                        
+                        <div class="d-flex align-items-center mb-4">
+                            <div class="contact-icon-wrapper bg-primary text-white rounded-circle p-3 me-3">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <div>
+                                <h5 class="mb-1">Phone Number</h5>
+                                <p class="mb-0">+973 35508310<br>+973 35508311</p>
+                            </div>
+                        </div>
+                        
+                        <div class="d-flex align-items-center">
+                            <div class="contact-icon-wrapper bg-primary text-white rounded-circle p-3 me-3">
+                                <i class="fas fa-building"></i>
+                            </div>
+                            <div>
+                                <h5 class="mb-1">Sister Concern</h5>
+                                <p class="mb-0">Federal Wave Contracting Company<br>Jubail, Saudi Arabia</p>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-4 pt-3 border-top">
+                            <h5 class="mb-3">Follow Us</h5>
+                            <div class="d-flex gap-3">
+                                <a href="#" class="btn btn-outline-primary rounded-circle" style="width: 40px; height: 40px; display: flex; align-items: center; justify-content: center;">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a href="#" class="btn btn-outline-primary rounded-circle" style="width: 40px; height: 40px; display: flex; align-items: center; justify-content: center;">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                                <a href="#" class="btn btn-outline-primary rounded-circle" style="width: 40px; height: 40px; display: flex; align-items: center; justify-content: center;">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                                <a href="#" class="btn btn-outline-primary rounded-circle" style="width: 40px; height: 40px; display: flex; align-items: center; justify-content: center;">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-7" data-aos="fade-left" data-aos-delay="200">
+                    <div class="contact-form bg-white p-4 rounded shadow">
+                        <h4 class="mb-4">Send Us a Message</h4>
+                        <form>
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="name" class="form-label">Your Name</label>
+                                    <input type="text" class="form-control" id="name" placeholder="John Doe" required>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="email" class="form-label">Your Email</label>
+                                    <input type="email" class="form-control" id="email" placeholder="name@example.com" required>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="phone" class="form-label">Phone Number</label>
+                                    <input type="tel" class="form-control" id="phone" placeholder="+973 XXXXXXXX">
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="subject" class="form-label">Subject</label>
+                                    <input type="text" class="form-control" id="subject" placeholder="Project Inquiry" required>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="message" class="form-label">Your Message</label>
+                                <textarea class="form-control" id="message" rows="5" placeholder="Tell us about your project requirements..." required></textarea>
+                            </div>
+                            <div class="mb-3 form-check">
+                                <input type="checkbox" class="form-check-input" id="agreement" required>
+                                <label class="form-check-label small" for="agreement">I agree to receive email communications from PKR Technical Services</label>
+                            </div>
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-paper-plane me-2"></i>Send Message
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-5 mb-lg-0">
+                    <img src="Frame 172.png" alt="PKR Technical Services Logo" class="mb-4" style="height: 100px;" >
+                    <p>Providing high-quality engineering and technical services to clients across the GCC region since 2010.</p>
+                    <div class="social-icons mt-4">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-2 col-md-4 mb-5 mb-md-0">
+                    <h5 class="mb-4">Quick Links</h5>
+                    <div class="footer-links">
+                        <a href="#home">Home</a>
+                        <a href="#about">About Us</a>
+                        <a href="#services">Services</a>
+                        <a href="#projects">Projects</a>
+                        <a href="#gallery">Gallery</a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-2 col-md-4 mb-5 mb-md-0">
+                    <h5 class="mb-4">Services</h5>
+                    <div class="footer-links">
+                        <a href="#">Engineering Consultancy</a>
+                        <a href="#">Project Management</a>
+                        <a href="#">EPC Coordination</a>
+                        <a href="#">Technical Support</a>
+                        <a href="#">Electrical Systems</a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-4">
+                    <h5 class="mb-4">Contact Info</h5>
+                    <div class="footer-links">
+                        <p><i class="fas fa-map-marker-alt me-2"></i> Manama, Kingdom of Bahrain</p>
+                        <p><i class="fas fa-envelope me-2"></i> sales@pkrtech.com</p>
+                        <p><i class="fas fa-phone-alt me-2"></i> +973 35508310</p>
+                        <p><i class="fas fa-globe me-2"></i> www.pkrtech.com</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="copyright text-center">
+                <p>&copy; 2025 PKR Technical Services Company W.L.L. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <a href="#" class="btn-floating" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+          // Initialize AOS animation library
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true
+        });
+        
+        // Content variations for dynamic changes
+        const contentThemes = [
+            {
+                title: "Engineering Excellence Across The GCC",
+                description: "PKR Technical Services Company W.L.L. provides end-to-end technical expertise to industrial, commercial, and governmental clients—backed by deep engineering knowledge and field execution.",
+                background: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80"
+            },
+            {
+                title: "Innovative Solutions for Modern Challenges",
+                description: "Transform your operations with cutting-edge technical services designed for the digital age. Our expert team delivers sustainable solutions that drive efficiency and growth.",
+                background: "https://images.unsplash.com/photo-1559136555-9303baea8ebd?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80"
+            },
+            {
+                title: "Building Tomorrow's Infrastructure Today",
+                description: "Leading the way in advanced engineering and technical consulting. We combine innovation with reliability to create infrastructure that stands the test of time.",
+                background: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80"
+            },
+            {
+                title: "Smart Technology, Smarter Solutions",
+                description: "Harness the power of intelligent systems and automated processes. Our technical expertise transforms complex challenges into streamlined operations.",
+                background: "istockphoto-1818561838-612x612.jpg"
+            },
+            {
+                title: "Precision Engineering for Every Project",
+                description: "From concept to completion, we deliver technical services with unmatched precision and attention to detail. Your success is our engineering achievement.",
+                background: "https://images.unsplash.com/photo-1581094288338-2314dddb7ece?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80"
+            }
+        ];
+        
+        let currentThemeIndex = 0;
+        const heroSection = document.getElementById('home');
+        const heroTitle = document.getElementById('hero-title');
+        const heroDescription = document.getElementById('hero-description');
+        
+        // Set initial background
+        heroSection.style.backgroundImage = `url('${contentThemes[0].background}')`;
+        
+        function changeContent() {
+            // Simple fade out
+            heroTitle.classList.remove('active');
+            heroDescription.classList.remove('active');
+            
+            setTimeout(() => {
+                // Move to next theme
+                currentThemeIndex = (currentThemeIndex + 1) % contentThemes.length;
+                const currentTheme = contentThemes[currentThemeIndex];
+                
+                // Update content
+                heroTitle.textContent = currentTheme.title;
+                heroDescription.textContent = currentTheme.description;
+                heroSection.style.backgroundImage = `url('${currentTheme.background}')`;
+                
+                // Simple fade in
+                setTimeout(() => {
+                    heroTitle.classList.add('active');
+                    heroDescription.classList.add('active');
+                }, 100);
+            }, 500);
+        }
+        
+        // Change content every 8 seconds
+        setInterval(changeContent, 8000);
+        
+        // Active navigation link highlighting
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            window.addEventListener('scroll', function() {
+                let current = '';
+                
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    
+                    if (scrollY >= (sectionTop - 200)) {
+                        current = section.getAttribute('id');
+                    }
+                });
+                
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#${current}`) {
+                        link.classList.add('active');
+                    }
+                });
+            });
+        });
+        // Back to top button
+        const backToTopButton = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', function() {
+            if (window.pageYOffset > 300) {
+                backToTopButton.style.display = 'flex';
+            } else {
+                backToTopButton.style.display = 'none';
+            }
+        });
+        
+        backToTopButton.addEventListener('click', function(e) {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Animated elements
+        const animatedElements = document.querySelectorAll('.animated-element');
+        
+        function checkVisibility() {
+            animatedElements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (elementPosition < windowHeight - 100) {
+                    element.classList.add('visible');
+                }
+            });
+        }
+        
+        window.addEventListener('scroll', checkVisibility);
+        window.addEventListener('load', checkVisibility);
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    const headerOffset = 80;
+                    const elementPosition = targetElement.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                    
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+                
+                // Close mobile menu if open
+                const navbarCollapse = document.querySelector('.navbar-collapse');
+                if (navbarCollapse.classList.contains('show')) {
+                    navbarCollapse.classList.remove('show');
+                }
+            });
+        });
+        
+        // Form validation
+        const contactForm = document.querySelector('form');
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Basic form validation
+                let valid = true;
+                const inputs = this.querySelectorAll('input, textarea');
+                
+                inputs.forEach(input => {
+                    if (!input.value.trim()) {
+                        valid = false;
+                        input.classList.add('is-invalid');
+                    } else {
+                        input.classList.remove('is-invalid');
+                    }
+                });
+                
+                if (valid) {
+                    // Here you would typically send the form data to a server
+                    // For demo purposes, we'll just show a success message
+                    const formElements = this.elements;
+                    for (let i = 0; i < formElements.length; i++) {
+                        formElements[i].disabled = true;
+                    }
+                    
+                    const submitButton = this.querySelector('button[type="submit"]');
+                    const originalText = submitButton.textContent;
+                    submitButton.textContent = 'Message Sent!';
+                    
+                    setTimeout(() => {
+                        for (let i = 0; i < formElements.length; i++) {
+                            formElements[i].disabled = false;
+                            if (formElements[i].type !== 'submit') {
+                                formElements[i].value = '';
+                            }
+                        }
+                        submitButton.textContent = originalText;
+                    }, 3000);
+                }
+            });
+        }
+
+
+       // Tab switching functionality
+        document.querySelectorAll('.gallery-tab').forEach(tab => {
+            tab.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Remove active class from all tabs and content
+                document.querySelectorAll('.gallery-tab').forEach(t => t.classList.remove('active'));
+                document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+                
+                // Add active class to clicked tab
+                this.classList.add('active');
+                
+                // Show corresponding content
+                const targetTab = this.getAttribute('data-tab');
+                document.getElementById(targetTab + '-content').classList.add('active');
+            });
+        });
+
+        // Lightbox functionality
+        function openLightbox(imageSrc, title, description) {
+            document.getElementById('lightboxImage').src = imageSrc;
+            document.getElementById('lightboxTitle').textContent = title;
+            document.getElementById('lightboxDescription').textContent = description;
+            
+            const modal = new bootstrap.Modal(document.getElementById('galleryModal'));
+            modal.show();
+        }
+
+        // Add loading animation
+        document.querySelectorAll('.gallery-item img').forEach(img => {
+            img.addEventListener('load', function() {
+                this.style.opacity = '1';
+            });
+        });
+    </script>
+</body>
+</html>
